@@ -1,0 +1,356 @@
+0
+append: insert: リスト: 追加:基本
+次の中でPythonのリストに要素を追加する方法を選んでください。
+append(): insert(): add(): push()
+append(): insert()
+append()、insert()はPythonのリストに要素を追加する方法です。
+
+1
+def: lambda: 関数:基本
+次の中でPythonの関数を定義するためのキーワードを選んでください。
+def: lambda: func: method
+def: lambda
+def と lambda はPythonの関数定義で使われます。
+
+2
+for: while: ループ:基本
+次の中でPythonのループ構文に使われるものを選んでください。
+for: while: loop: iterate
+for: while
+for と while はPythonのループに使われる基本構文です。
+
+3
+str: int: float: 型:変換:基本
+次の中でPythonで型変換に使われる関数を選んでください。
+str(): int(): float(): convert()
+str(): int(): float()
+str()、int()、float() はデータ型の変換に使用される関数です。
+
+4
+if: elif: else: 条件:分岐:基本
+次の中で条件分岐に使われるPythonのキーワードを選んでください。
+if: elif: else: case
+if: elif: else
+if、elif、else は条件分岐でよく使われるキーワードです。
+
+5
+try: except: finally: 例外:基本
+次の中でPythonの例外処理に使われるキーワードを選んでください。
+try: except: finally: throw
+try: except: finally
+try、except、finally は例外を処理するための構文です。
+
+6
+class: def: クラス:基本
+次の中でPythonのクラス定義に使われるものを選んでください。
+class: object: def: method
+class: def
+class と def はオブジェクト指向プログラミングでの基本です。
+
+7
+list: tuple: set: コレクション:型:基本
+次の中でPythonのコレクション型を表すものを選んでください。
+list: tuple: set: array
+list: tuple: set
+list、tuple、set はPythonのデータ構造としてよく使用されます。
+
+8
+is: ==: 比較:基本
+次の中でPythonで値の比較に使われる演算子を選んでください。
+is: ==: equals(): compare
+is: ==
+is と == はPythonで値やオブジェクトの比較に使われます。
+
+9
+import: from: as: モジュール:インポート:基本
+次の中でPythonのモジュールをインポートするためのキーワードを選んでください。
+import: from: as: include
+import: from: as
+import、from、as はモジュールの読み込み時に使います。
+
+10
+with: open: read: ファイル:基本
+次の中でファイル操作に関連するPythonのキーワードを選んでください。
+with: open: read: load
+with: open: read
+with、open、read はファイル操作で頻繁に使われます。
+
+11
+and: or: not: 論理:基本
+次の中でPythonの論理演算に使われる演算子を選んでください。
+and: or: not: xor
+and: or: not
+and、or、not は基本的な論理演算子です。
+
+12
+len: 文字列:リスト:基本
+次の中でPythonでリストや文字列の長さを取得する関数を選んでください。
+len(): size(): length(): count()
+len()
+len() はリストや文字列の長さを返すために使われます。
+
+13
+return: yield: 関数:中級
+次の中で関数の結果を返すために使うキーワードを選んでください。
+return: yield: break: continue
+return: yield
+return は関数の実行を終了し、値を返すために使われます。通常、関数が単一の結果を返す場合に使用されます。yield はジェネレータ関数を作成するために使用され、呼び出し元に値を返した後も関数の状態を保持します。ジェネレータを使用すると、next() を呼び出すたびに次の値を返し、関数の途中から再開することができます。return と yield は関数の出力を制御するために使います。
+
+14
+global: nonlocal: スコープ:中級
+次の中でスコープ（変数の範囲）に関係するキーワードを選んでください。
+global: local: nonlocal: outer
+global: nonlocal
+global は関数内でグローバル変数を変更する場合に使用します。通常、関数内で変数を代入するとローカル変数が作られますが、global を使うことでスコープをグローバルに変更できます。nonlocal は、ネストされた関数（関数の中に関数がある場合）で外側の関数の変数を変更するために使用されます。ローカル変数とは異なり、関数のスコープを超えて影響を与えることができます。global と nonlocal はスコープを制御するために使います。
+
+15
+dict: set: list: 型:中級
+次の中でPythonのデータ型であるものを選んでください。
+dict: set: list: stack
+dict: set: list
+dict（辞書）はキーと値のペアを持つデータ構造で、キーを使って値を取得できます。set（集合）は重複しない要素を持つデータ型で、順序は保証されません。list（リスト）は順序を持つ変更可能なシーケンス型で、要素を追加・削除できます。stack はPythonの標準データ型ではなく、list や collections.deque を使って実装されます。dict、set、list はPythonの組み込みデータ型です。
+
+16
+map: filter: reduce: 関数型:中級
+次の中で関数型プログラミングに関連するPythonの関数を選んでください。
+map(): filter(): reduce(): transform()
+map(): filter(): reduce()
+map() はイテラブル（リストなど）の各要素に関数を適用し、新しいイテラブルを返します。filter() は関数を適用し、条件を満たす要素のみを抽出した新しいイテラブルを返します。reduce() は要素を累積的に処理し、単一の値を計算するために使用されます（functools.reduce() が必要）。transform() はPythonの標準関数には存在しません。map()、filter()、reduce() は関数型プログラミングで使われます。
+
+17
+raise: 例外: try: catch:中級
+次の中でPythonで例外を送出するためのキーワードを選んでください。
+raise: throw: try: catch
+raise
+raise はPythonで例外を明示的に送出するために使われます。例えば、raise ValueError("無効な値です") のように使い、特定のエラーを発生させることができます。throw はPythonには存在せず、JavaScript や C++ などで使用されるキーワードです。try は例外をキャッチするためのブロックを開始するために使用されます。catch もPythonには存在せず、Java などで使われる try-catch の catch に相当します。Pythonでは except を使います。raise は例外を明示的に送出するために使われます。
+
+18
+break: continue: pass: 制御:ループ:基本
+次の中でループの制御に関連するPythonのキーワードを選んでください。
+break: continue: pass: skip
+break: continue: pass
+break、continue、pass はループの流れを制御するために使われます。
+
+19
+assert:例外:中級
+次の中でPythonで条件が正しいか確認するために使うキーワードを選んでください。
+assert: validate: check: inspect
+assert
+assert は条件を確認し、失敗した場合に例外を発生させます。
+
+20
+zip: enumerate: range: イテラブル:中級
+次の中でイテラブルなオブジェクトを操作するための関数を選んでください。
+zip(): enumerate(): range(): join()
+zip(): enumerate(): range()
+zip()、enumerate()、range() はイテラブルなオブジェクトを操作するための関数です。
+
+21
+open: ファイル:書き込み: write: append:基本
+次の中でファイルの書き込みに関連する操作を選んでください。
+open(): close(): write(): append()
+open(): write(): append()
+open()、write()、append() はファイルにデータを書き込むときに使います。
+
+22
+bool: int: str: 型:基本
+次の中でデータ型に関連するPythonの関数を選んでください。
+bool(): int(): str(): char()
+bool(): int(): str()
+bool()、int()、str() はデータ型の変換に使います。
+
+23
+time: datetime: calendar: 日付:時間:基本
+次の中で日付や時間を扱うために使われるPythonのモジュールを選んでください。
+time: datetime: calendar: dateutil
+time: datetime: calendar
+time、datetime、calendar は日付や時間の操作に使います。
+
+24
+super: self: クラス:中級
+次の中でオブジェクト指向プログラミングにおける特殊なキーワードを選んでください。
+super(): self: base: parent
+super(): self
+super() は親クラスのメソッドを呼び出すために使用されます。self はクラスのインスタンス自身を指し、メソッドの中でオブジェクトの属性やメソッドにアクセスするために使用されます。base や parent はPythonのキーワードではありません。super() と self はクラスのメソッドや親クラスの呼び出しで使われます。
+
+25
+None: 基本
+次の中でPythonで値がないことを表すキーワードを選んでください。
+None: False: True: Null
+None
+None はPythonで「何もない」ことを表す特別なオブジェクトです。False や True は論理値を表します。Null はPythonには存在せず、JavaScriptやSQLで使用される値です。None はPythonで「何もない」を表す特別なオブジェクトです。
+
+26
+isinstance: type: 型:中級
+次の中でオブジェクトの型を判定するために使う関数を選んでください。
+isinstance(): type(): id(): eval()
+isinstance(): type()
+isinstance() は指定されたオブジェクトが特定のクラスのインスタンスであるかどうかを判定するために使用されます。type() はオブジェクトの型を取得するために使用されます。id() はオブジェクトの識別番号を取得するための関数であり、型判定には使用しません。eval() は文字列として記述されたPythonコードを実行するための関数です。isinstance() と type() はオブジェクトの型チェックに使います。
+
+27
+sorted: reversed: リスト: 並び替え:基本
+次の中でリストを並び替えるために使うPythonの関数を選んでください。
+sorted(): reversed(): order(): filter()
+sorted(): reversed()
+sorted() はリストの要素を並び替えた新しいリストを返します。reversed() はリストの要素を逆順にするイテレータを返します。order() はPythonには存在しません。filter() は要素を選択するための関数であり、並び替えには使用されません。sorted() と reversed() はリストの順序を変更するために使います。
+
+28
+all: any: イテラブル:中級
+次の中でイテラブルの中身を評価する関数を選んでください。
+all(): any(): max(): min()
+all(): any()
+all() はイテラブルのすべての要素が真である場合に True を返します。any() はイテラブルのいずれかの要素が真である場合に True を返します。max() と min() はそれぞれ最大値と最小値を取得するための関数であり、真偽値の評価には使用されません。all() と any() はイテラブル内のすべてまたは一部の要素を評価します。
+
+29
+bytes: 型: int: float:基本
+次の中でPythonの組み込みデータ型を表すものを選んでください。
+bytes: string: int: float
+bytes: int: float
+bytes はバイナリデータを扱うための型です。int は整数を扱う型です。float は浮動小数点数を扱う型です。string はPythonには存在せず、文字列型は str で表されます。bytes、int、float はPythonの組み込みデータ型です。
+
+30
+try: except: assert: 例外:中級
+次の中で例外処理またはエラーチェックに使うキーワードを選んでください。
+try: except: assert: validate
+try: except: assert
+try は例外が発生する可能性のあるコードを実行するために使用されます。except は try 内で発生した例外をキャッチして処理するために使用されます。assert はデバッグ時のエラーチェックに使用され、条件が False の場合に AssertionError を発生させます。validate はPythonのキーワードではありません。try、except、assert はエラーの処理と検証に使われます。
+
+31
+list: tuple: set: dict:基本
+次の中でPythonの組み込みデータ構造を表すものを選んでください。
+list: tuple: array: dict
+list: tuple: dict
+list は順序を持つ変更可能なシーケンス型です。tuple は順序を持つが変更不可なシーケンス型です。dict はキーと値のペアを格納するデータ構造です。array はPythonの組み込み型ではなく、list や numpy.array などで代用されます。list、tuple、dict はPythonの組み込みデータ構造です。
+
+32
+for: while: loop: iteration:基本
+次の中でPythonのループ処理に使うキーワードを選んでください。
+for: while: repeat: do
+for: while
+for はイテラブルの要素を順に処理するループを作成します。while は条件が真の間、ループを繰り返します。repeat と do はPythonには存在せず、do-while ループはPythonではサポートされていません。for と while はPythonのループ処理に使われます。
+
+33
+import: from: module:ライブラリ:基本
+Pythonでライブラリを利用する際に使用するキーワードを選んでください。
+import: from: use: require
+import: from
+import は外部のモジュールを読み込むために使用されます。from はモジュール内の特定の要素を直接インポートするために使用されます。use はPythonには存在せず、JavaScriptやSQLで使用されることがあります。require はNode.jsのモジュール読み込みに使用されるキーワードであり、Pythonには存在しません。import と from はPythonでライブラリを利用する際に使用されます。
+
+34
+lambda: def:関数:匿名関数:中級
+Pythonで関数を定義するためのキーワードを選んでください。
+lambda: def: func: return
+lambda: def
+lambda は無名関数を定義するために使用されます。def は通常の関数を定義するために使用されます。func はPythonには存在せず、関数を表すための一般的な単語です。return は関数の戻り値を指定するためのキーワードですが、関数の定義には使用しません。lambda と def は関数を定義する際に使用されます。
+
+35
+if: elif: else: 条件分岐:基本
+次の中で条件分岐に使用するキーワードを選んでください。
+if: elif: else: switch
+if: elif: else
+if は条件分岐を開始するために使用されます。elif は if に続く条件分岐を定義します。else は if または elif の条件がすべて偽だった場合に実行されるブロックを定義します。switch はPythonには存在せず、CやJavaScriptなどで使用されるキーワードです。if、elif、else はPythonの条件分岐に使用されます。
+
+36
+class: self: 継承:オブジェクト指向:中級
+Pythonでクラスを定義する際に使用するキーワードを選んでください。
+class: self: extends: object
+class: self
+class は新しいクラスを定義するために使用されます。self はクラスのインスタンスを指し、メソッド内でオブジェクトの属性やメソッドにアクセスするために使用されます。extends はPythonには存在せず、JavaやJavaScriptなどで継承を表すために使用されます。object はPythonの組み込み型ですが、キーワードではなく、class の継承元として使われます。class と self はPythonでクラスを定義する際に使用されます。
+
+37
+break: continue: pass: ループ制御:中級
+次の中でループを制御するためのキーワードを選んでください。
+break: continue: pass: stop
+break: continue: pass
+break はループを即座に終了するために使用されます。continue はループの残りの処理をスキップし、次の反復を開始します。pass は何も処理を行わず、文法上の空のブロックを許可するために使用されます。stop はPythonのキーワードではありません。break、continue、pass はループ制御に使用されます。
+
+38
+range: enumerate: zip: イテレータ:中級
+次の中でイテレータを生成する関数を選んでください。
+range: enumerate: zip: iterate
+range: enumerate: zip
+range() は指定された範囲の整数を生成するイテレータを作成します。enumerate() はイテラブルの各要素に対して、インデックスと要素のペアを生成するイテレータを作成します。zip() は複数のイテラブルを組み合わせて、各要素をタプルにしたイテレータを作成します。iterate はPythonの関数やキーワードではありません。range、enumerate、zip はイテレータを生成する関数です。
+
+39
+open: read: write: ファイル操作:基本
+Pythonでファイルを操作する際に使用する関数を選んでください。
+open: read: write: load
+open: read: write
+open、read、write はファイル操作に使用されます。
+
+40
+global: nonlocal:スコープ:変数:上級
+次の中で変数のスコープを制御するキーワードを選んでください。
+global: nonlocal: var: let
+global: nonlocal
+global は関数内でグローバル変数を変更する際に使用します。nonlocal はネストされた関数内で、外側の関数の変数を変更するために使用します。var と let はJavaScriptのスコープ管理のためのキーワードであり、Pythonには存在しません。global と nonlocal は変数のスコープを制御するために使用されます。
+
+41
+map: filter: reduce: 高階関数:上級
+次の中で高階関数を選んでください。
+map: filter: reduce: apply
+map: filter: reduce
+map() は各要素に関数を適用し、新しいイテラブルを返します。filter() は条件を満たす要素のみを抽出した新しいイテラブルを返します。reduce() は要素を累積的に処理し、単一の値を計算するために使用されます（functools.reduce() が必要）。apply はPythonには存在せず、JavaScriptなどで使用される関数です。map、filter、reduce は高階関数として使用されます。
+
+42
+try: except: finally: 例外処理:中級
+Pythonで例外処理を行う際に使用するキーワードを選んでください。
+try: except: finally: throw
+try: except: finally
+try はエラーが発生する可能性のあるコードを実行するためのブロックを定義します。except は try 内で発生した例外をキャッチして処理します。finally は try の実行結果に関係なく、必ず実行される処理を定義するために使用されます。throw はPythonには存在せず、JavaScriptやJavaで例外を送出するために使用されるキーワードです。try、except、finally はPythonの例外処理で使用されます。
+
+43
+is: ==: 比較演算子:演算子:基本
+次の中で比較演算子を選んでください。
+is: ==: !=: equals
+is: ==: !=
+is、==、!= はPythonの比較演算子です。
+
+44
+append: extend: insert: リスト操作:基本
+次の中でリストの要素を追加するためのメソッドを選んでください。
+append: extend: insert: add
+append: extend: insert
+append、extend、insert はリスト操作で要素を追加する際に使用されます。
+
+45
+len: type: id: 組み込み関数:基本
+次の中でPythonの組み込み関数を選んでください。
+len: type: id: sizeof
+len: type: id
+len、type、id はPythonの組み込み関数です。
+
+46
+int: float: complex: 数値型:基本
+次の中でPythonの数値型を表すものを選んでください。
+int: float: double: complex
+int: float: complex
+int、float、complex はPythonの数値型です。
+
+47
+set: frozenset: 集合:データ構造:中級
+Pythonの集合を表すデータ構造を選んでください。
+set: frozenset: dict: array
+set: frozenset
+set と frozenset はPythonの集合データ構造です。
+
+48
+with: as: コンテキストマネージャ:上級
+Pythonでコンテキストマネージャを使用する際のキーワードを選んでください。
+with: as: use: manage
+with: as
+with はコンテキストマネージャを使用する際に使われ、リソースの確実な解放を保証します（例: ファイル操作）。as は with 文と一緒に使われ、コンテキストマネージャの戻り値を変数に代入します。use や manage はPythonには存在しません。with と as はコンテキストマネージャの実装で使用されます。
+
+49
+hash: id: dict: ハッシュ関数:データ構造:上級
+Pythonのハッシュ機能を利用するための関数を選んでください。
+hash: id: dict: hashlib
+hash: id: dict
+hash() はオブジェクトのハッシュ値を取得するための組み込み関数です。id() はオブジェクトの一意の識別子を取得するための関数です。dict はハッシュテーブルを使用してデータを管理するPythonの組み込みデータ型です。hashlib はハッシュ関数を提供するモジュールですが、関数ではないため正解ではありません。hash、id、dict はPythonでハッシュ機能を利用するために使用されます。<a href="https://chatgpt.com/share/67ab7c70-97f0-800d-8dd0-5b51c0cea3f4">リンク</a>
+
+50
+yield: generator: next: ジェネレータ:上級
+次の中でジェネレータに関連するキーワードを選んでください。
+yield: generator: next: create
+yield: generator: next
+yield はジェネレータ関数を作成するために使われ、関数の状態を保持しながら値を返します。generator はジェネレータオブジェクトの作成に関連する概念です。next() はジェネレータから次の値を取得するために使用されます。create はPythonのキーワードではありません。yield、generator、next はジェネレータに関連するキーワードです。

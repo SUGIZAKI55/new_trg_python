@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ジャンルごとのトピック一覧</title>
+    <script>
+        function validateForm() {
+            // 選択されたラジオボタン（ジャンル）
+            const selectedGenre = document.querySelector('input[name="category"]:checked');
+            // 数字の入力フィールド
+            const numInput = document.querySelector('input[name="nanko"]');
+            // 入力された数字を取得
+            const num = parseInt(numInput.value, 10);
+
+            // ジャンルが選択されていない場合
+            if (!selectedGenre) {
+                alert("ジャンルを1つ選択してください。");
+                return false;
+            }
+
+            // 選択されたジャンルに対応するトピック数を取得
+            const maxTopics = parseInt(selectedGenre.getAttribute('data-length'), 10);
+
+            // 数字が無効、1未満、またはトピック数を超える場合
+            if (isNaN(num) || num < 1 || num > maxTopics) {
+                alert(`数字は1以上、選択したジャンルのトピック数 (${maxTopics}) 以下で入力してください。`);
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>ジャンルごとのトピック一覧</h1>
+    
+    {% if genre_to_ids %}
+        <form action="{{ url_for('firstquestion') }}" method="post" onsubmit="return validateForm();">
+            <ul>
+                {% for genre, ids in genre_to_ids.items() %}
+                    <li>
+                        <!-- ラジオボタンで1つのジャンルを選択 -->
+                        <input type="radio" name="category" value="{{ genre }}" data-length="{{ ids | length }}">
+                        <strong>{{ genre }}:</strong> {{ ids | length }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <!-- 数字入力 -->
+            数字を入力してください<br>
+            <input type="text" name="nanko"><br><br>
+            <!-- 送信ボタン -->
+            <button type="submit">送信</button>
+        </form>
+    {% else %}
+        <p>表示するトピックがありません。</p>
+    {% endif %}
+</body>
+</html>

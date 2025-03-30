@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>問題の編集</title>
+</head>
+<body>
+    <h1>問題の編集</h1>
+    <form method="post" action="{{ url_for('edit_question', question_id=question_id) }}">
+        <label>問題番号：</label>
+        <input type="text" name="Q_no" value="{{ question.Q_no }}" readonly><br>
+        <label>ジャンル：</label>
+        <input type="text" name="genre" value="{{ question.genre }}"><br>
+        <label>問題文:</label>
+        <input type="text" name="title" value="{{ question.title }}"><br>
+        <label>選択肢：</label>
+        <input type="text" name="choices" value="{{ question.choices }}"><br>
+        <label>正解：</label>
+        <input type="text" name="answer" value="{{ question.answer }}"><br>
+        <label>解説：</label>
+        <textarea name="explanation">{{ question.explanation }}</textarea><br>
+        <button type="submit">保存</button>
+    </form>
+    <a href="{{ url_for('admin') }}">戻る</a>
+</body>
+</html>
+

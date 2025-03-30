@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Month Quiz</title>
+    <!-- Bootstrap CSS -->
+</head>
+<body >
+    <div class="card-header text-center">
+        <h3>問題 Q_no={{Q_no}}</h3>
+    
+    </div>
+    <div >
+        <div style="color: red; font-size: 2em; font-weight: bold;">
+        <p>総合結果: {{ answer }}</p>
+        <!-- <p>経過時間: {{ et }}M</p> -->
+        </div>
+    <table border="1">
+    <tr>
+        <th>選択肢</th>
+        <th>個別結果</th>
+    </tr>
+    {% for k,v in answer_feedback.items() %}
+    <tr>
+        <td>{{ k }}</td>
+        <td>{{ v }}</td>
+    </tr>
+    {% endfor %}
+</table>
+        <p>選択した答え: {{ user_choice }}</p>
+        <p>正しい答え: {{ correct_ans }}</p>
+        {% if Q_no>=session["number"] %}
+            <p>終了</p> 
+            <a href="{{ url_for('admin') }}">戻る</a>    
+        {% else %} <br>
+            <form action="/question" method="get">
+            経過時間{{et}}M<br>
+                <button type="submit" >Next</button>
+            </form>  
+        {% endif %}
+    </div>
+
+
+</body>
+</html>

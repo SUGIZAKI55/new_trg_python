@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>正答率の表示</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>正答率の結果</h1>
+
+    <!-- 名前とジャンル別正答率を表示 -->
+    <div>
+        <h2>名前とジャンル別正答率</h2>
+        {% if ans %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ジャンル</th>
+                        <th>正答率</th>
+                        <th>正解数</th>
+                        <th>総問題数</th>
+                        <th>間違えた問題ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for genre, data in ans.items() %}
+                    <tr>
+                        <td>{{ genre }}</td>
+                        <td>{{ (data.correct / data.total) * 100 | round(2) }}%</td>
+                        <td>{{ data.correct }}</td>
+                        <td>{{ data.total }}</td>
+                        <td>
+                            {% if data.error %}
+                            {% for question_id in data.error %}
+                                <a href="{{ url_for('retry_question', question_id=question_id) }}">{{ question_id }}</a>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            なし
+                        {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>データがありません。</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
