@@ -1,88 +1,68 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+# createquiz.py
+from flask import Blueprint, render_template, request, redirect, url_for, g, abort
 import sqlite3
+import logging
 
-createquiz_bp = Blueprint('createquiz', __name__)
+logger = logging.getLogger(__name__)
+createquiz_bp = Blueprint('createquiz', __name__, url_prefix='/createquiz')
 
-# データベース接続設定
-def create_db_connection():
-    connection = sqlite3.connect('sugizaki.db')
-    return connection
+def get_db():
+    conn = getattr(g, '_database', None)
+    if conn is None:
+        conn = g._database = sqlite3.connect('sugizaki.db')
+        conn.row_factory = sqlite3.Row
+    return conn
 
-# 問題をデータベースから読み込む関数
-def load_questions():
-    connection = create_db_connection()
-    if connection is not None:
-        try:
-            cursor = connection.cursor()
-            query = "SELECT rowid, Q_no, genre, title, choices, answer, explanation FROM quiz_questions"
-            cursor.execute(query)
-            questions = cursor.fetchall()
-            return questions
-        except sqlite3.Error as e:
-            print(f"The error '{e}' occurred")
-            return []
-        finally:
-            cursor.close()
-            connection.close()
-    return []
+@createquiz_bp.teardown_request
+def close_db(error):
+    conn = getattr(g, '_database', None)
+    if conn is not None:
+        conn.close()
 
-# 問題をデータベースに保存する関数
-def save_questions(questions):
-    connection = create_db_connection()
-    if connection is not None:
-        try:
-            cursor = connection.cursor()
-            cursor.execute("DELETE FROM quiz_questions")
-            for q in questions:
-                query = "INSERT INTO quiz_questions (Q_no, genre, title, choices, answer, explanation) VALUES (?, ?, ?, ?, ?, ?)"
-                cursor.execute(query, q[1:])
-            connection.commit()
-        except sqlite3.Error as e:
-            print(f"The error '{e}' occurred")
-        finally:
-            cursor.close()
-            connection.close()
+def query_db(query, args=(), one=False):
+    cur = get_db().execute(query, args)
+    rv = cur.fetchall()
+    cur.close()
+    return (rv[0] if rv else None) if one else rv
+
+def execute_db(query, args=()):
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(query, args)
+    conn.commit()
+    cur.close()
 
 @createquiz_bp.route('/q_list')
 def q_list():
-    questions = load_questions()
+    questions = query_db("SELECT rowid, Q_no, genre, title, choices, answer, explanation FROM quiz_questions")
     return render_template('q_list.html', questions=questions)
 
 @createquiz_bp.route('/editQuiz')
 def editQuiz():
-    questions = load_questions()
-    return render_template('q_list.html', questions=questions)
+    return redirect(url_for('createquiz.q_list'))
 
 @createquiz_bp.route('/edit/<int:question_id>', methods=['GET', 'POST'])
 def edit_question(question_id):
-    questions = load_questions()
-    question = None
-    for q in questions:
-      if q[0]==question_id:
-        question =q
-        break;
+    error = None
+    question = query_db("SELECT Q_no, genre, title, choices, answer, explanation FROM quiz_questions WHERE rowid = ?", [question_id], one=True)
+    if question is None:
+        abort(404, description="問題が見つかりませんでした。")
 
     if request.method == 'POST':
-        # フォームからデータを取得して更新
-        updated_question = (
-            request.form['Q_no'],
-            request.form['genre'],
-            request.form['title'],
-            request.form['choices'],
-            request.form['answer'],
-            request.form['explanation']
-        )
-        updated_questions = []
-        for q in questions:
-          if q[0] == question_id:
-            updated_questions.append((question_id,*updated_question))
-          else:
-            updated_questions.append(q)
+        q_no = request.form['Q_no']
+        genre = request.form['genre']
+        title = request.form['title']
+        choices = request.form['choices']
+        answer = request.form['answer']
+        explanation = request.form['explanation']
+        if not title:
+            error = 'Title is required.'
+        else:
+            execute_db("UPDATE quiz_questions SET Q_no=?, genre=?, title=?, choices=?, answer=?, explanation=? WHERE rowid=?",
+                       [q_no, genre, title, choices, answer, explanation, question_id])
+            return redirect(url_for('createquiz.q_list'))
 
-        save_questions(updated_questions)
-        return redirect(url_for('createquiz.editQuiz'))
-
-    return render_template('edit.html', question=question, question_id=question_id)
+    return render_template('edit.html', question=question, question_id=question_id, error=error)
 
 @createquiz_bp.route('/createQuiz')
 def index2():
@@ -90,25 +70,19 @@ def index2():
 
 @createquiz_bp.route('/createQuiz2', methods=['POST'])
 def createQuiz2():
-    title = request.form.get('title')
-    genre = request.form.get('genre')
-    choices = request.form.get('choices')
-    answer = request.form.get('answer')
-    explanation = request.form.get('explanation') or "なし"  # 空の場合はデフォルト値
+    error = None
+    if request.method == 'POST':
+        title = request.form.get('title')
+        genre = request.form.get('genre')
+        choices = request.form.get('choices')
+        answer = request.form.get('answer')
+        explanation = request.form.get('explanation') or "なし"
 
-    # 新しい問題を作成
-    questions = load_questions()
-    new_question = (
-        len(questions),
-        str(len(questions)),
-        genre,
-        title,
-        choices,
-        answer,
-        explanation
-    )
+        if not title:
+            error = 'Title is required.'
+        else:
+            execute_db("INSERT INTO quiz_questions (genre, title, choices, answer, explanation) VALUES (?, ?, ?, ?, ?)",
+                       [genre, title, choices, answer, explanation])
+            return redirect(url_for('createquiz.q_list'))
 
-    # 問題をリストに追加し保存
-    questions.append(new_question)
-    save_questions(questions)
-    return "登録が完了しました"
+    return render_template('q_index.html', error=error)

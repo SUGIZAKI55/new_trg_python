@@ -34,7 +34,7 @@
     <h1>ジャンルごとのトピック一覧</h1>
     
     {% if genre_to_ids %}
-        <form action="{{ url_for('firstquestion') }}" method="post" onsubmit="return validateForm();">
+        <form action="{{ url_for('quiz.firstquestion') }}" method="post" onsubmit="return validateForm();">
             <ul>
                 {% for genre, ids in genre_to_ids.items() %}
                     <li>
