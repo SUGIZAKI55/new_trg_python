@@ -70,7 +70,7 @@ def view():
         logger.error(f"ログファイル処理中に予期しないエラーが発生しました: {e}")
         ans = {}
 
-    return render_template('view.html', ans=ans)
+    return render_template('admin.html', ans=ans,username=username)
 
 @admin_bp.route('/retry/<question_id>', methods=['GET'])
 def retry_question(question_id):

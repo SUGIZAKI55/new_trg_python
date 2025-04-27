@@ -14,6 +14,13 @@ def get_db():
         conn.row_factory = sqlite3.Row
     return conn
 
+def authenticate_user(username, password):
+    user = query_db('SELECT id, password_hash FROM users WHERE username = ?', [username], one=True)
+    if user:
+        return bcrypt.checkpw(password.encode('utf-8'), user['password_hash'])
+    return False
+
+
 @auth_bp.teardown_request
 def close_db(error):
     conn = getattr(g, '_database', None)

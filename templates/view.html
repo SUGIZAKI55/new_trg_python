@@ -46,7 +46,7 @@
                         <td>
                             {% if data.error %}
                             {% for question_id in data.error %}
-                                <a href="{{ url_for('retry_question', question_id=question_id) }}">{{ question_id }}</a>{% if not loop.last %}, {% endif %}
+                                <a href="{{ url_for('admin.retry_question', question_id=question_id) }}">{{ question_id }}</a>{% if not loop.last %}, {% endif %}
                             {% endfor %}
                         {% else %}
                             なし
