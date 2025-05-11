@@ -32,9 +32,9 @@
         <p>正しい答え: {{ correct_ans }}</p>
         {% if Q_no>=session["number"] %}
             <p>終了</p> 
-            <a href="{{ url_for('admin') }}">戻る</a>    
+            <a href="{{ url_for('admin.view') }}">戻る</a>    
         {% else %} <br>
-            <form action="/question" method="get">
+            <form action="/quiz/question" method="get">
             経過時間{{et}}M<br>
                 <button type="submit" >Next</button>
             </form>  

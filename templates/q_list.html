@@ -10,7 +10,7 @@
             {{ question.Q_no }}   |   {{ question.genre }}   |   {{ question.title }} - <a href="{{ url_for('edit_question', question_id=loop.index0) }}">編集</a><br>
         {% endfor %}
     </ul>
-    <a href="{{ url_for('admin') }}">戻る</a>
+    <a href="{{ url_for('admin.view') }}">戻る</a>
 </body>
 </html>
 

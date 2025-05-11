@@ -7,7 +7,7 @@
 <body>
     <h1>選択したジャンル：{{ genre_name }}</h1>   
     <h2>問題:{{ question }}</h2>
-    <form action="/answer" method="GET">
+    <form action="/quiz/answer" method="GET">
         {% for x in choices %}
             <div>
                 <input type="checkbox" name="choice[]" value="{{ x }}">{{x}}

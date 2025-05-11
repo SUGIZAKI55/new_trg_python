@@ -85,4 +85,6 @@ def createQuiz2():
                        [genre, title, choices, answer, explanation])
             return redirect(url_for('createquiz.q_list'))
 
+
+
     return render_template('q_index.html', error=error)

@@ -25,19 +25,14 @@
 <body>
 
 <div class="tab">
-    <h1>{{ username }} の管理者画面</h1> <!-- ユーザー名を表示 -->
-    <button onclick="window.location.href='{{ url_for('quiz.genre') }}'">テストを実施</button>
+    <h1>{{ username }} の管理者画面</h1> <button onclick="window.location.href='{{ url_for('quiz.genre') }}'">テストを実施</button>
     <button onclick="window.location.href='{{ url_for('createquiz.editQuiz') }}'">テスト一覧・編集</button>
-    <button onclick="window.location.href='{{ url_for('createquiz.createQuiz2') }}'">テスト作成</button>
+    <form action="{{ url_for('createquiz.createQuiz2') }}" method="post" style="display:inline;">
+        <button type="submit">テスト作成</button>
+    </form>
     <button onclick="window.location.href='{{ url_for('admin.view') }}'">テスト結果</button>
     <button onclick="window.location.href='{{ url_for('auth.logout') }}'">ログアウト</button>
-    <!-- <button onclick="window.location.href='/quiz/genre'">テストを実施</button>
-    <button onclick="window.location.href='/createquiz/editQuiz'">テスト一覧・編集</button>
-    <button onclick="window.location.href='/createquiz/createQuiz'">テスト作成</button>
-    <button onclick="window.location.href='/quiz/view'">テスト結果</button>
-    <button onclick="window.location.href='/logout'">ログアウト</button> -->
 </div>
 
 </body>
 </html>
-
